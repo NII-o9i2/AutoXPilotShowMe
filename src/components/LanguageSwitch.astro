@@ -1,0 +1,57 @@
+---
+const {lang} = Astro.props
+const isEn = lang === 'en'
+---
+
+<div class="lang-switch">
+  <i class:list={['slide', { 'slide-move': isEn }]}></i>
+  <span class={!isEn ? 'active': ''}>中</span>
+  <span class={isEn ? 'active': ''}>EN</span>
+</div>
+
+<style>
+  .lang-switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    border-radius: 13px;
+    color: white;
+    overflow: hidden;
+    box-shadow:
+      rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  }
+  .lang-switch .slide {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    scale: 0.9;
+    box-shadow:
+    box-shadow:  5px 5px 10px #fff,
+                -5px -5px 10px #fff;
+    transition: all 0.3s ease;
+  }
+  .slide-move {
+    transform: translateX(28px);
+  }
+  .lang-switch span {
+    cursor: pointer;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    font-size: 12px;
+    z-index: 10;
+  }
+  .lang-switch span.active {
+    color: black;
+  }
+</style>

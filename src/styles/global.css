@@ -1,0 +1,49 @@
+@media screen and (min-width: 500px) {
+  .hamburger {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 499px) {
+  .nav-links {
+    position: fixed !important;
+    top: 0 !important;
+    left: -400px !important;
+    flex-direction: column;
+    width: 40vh !important;
+    height: 100vh !important;
+    backdrop-filter: blur(15px);
+    z-index: 99;
+    transition: all 0.5s ease;
+  }
+  .nav-links .right {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .logo {
+    margin-bottom: 20px;
+    margin-right: 0 !important;
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    text-align: center;
+  }
+  .links a {
+    display: block;
+    font-size: 18px;
+    width: 100% !important;
+    padding: 20px 0px !important;
+    border-bottom: 1px solid #333;
+    border-radius: 0 !important;
+  }
+  .links a::after {
+    display: none;
+  }
+
+  .title h1 {
+    line-height: 56px;
+  }
+
+}
