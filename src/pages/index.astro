@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import Hamburger from "../components/Hamburger.astro";
+---
+
+<script>
+  import "../scripts/menu.js";
+</script>
+
+<Layout title="Welcom to XPilot">
+  <div id="home">
+    <Hamburger />
+    <Navigation lang="cn"/>
+    <main>
+      <div class="content">
+        <div class="title">
+          <h1>XPilot Planning</h1>
+          <p>开发团队<span style="color:#0C4FFE">&lt;/&gt</span></p>
+        </div>
+        <div class="detail">
+          <p>
+            Hi👋～我们是一个专注于研究自动驾驶决策规划算法开发与落地的团队，来自于商汤科技。
+          </p>
+          <p>
+            我们可以实现在有无高精地图(w/o
+            HDMap)的场景下实现完整的NOP功能，很高兴在这里分享一些团队在决策规划领域的取得的成果
+          </p>
+        </div>
+        <div class="button">
+          <a href="#about">了解我们</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div id="about">about</div>
+</Layout>
+
+<style>
+  #home,
+  #about {
+    width: 100vw;
+    height: 100vh;
+    padding: 20px 30px;
+    background: url("../../public/images/bg-home.png") no-repeat;
+    background-size: cover;
+  }
+  #about {
+    background-image: url("../../public/images/bg-about.png");
+  }
+  main {
+    width: 100%;
+    height: calc(100% - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "wen-quan-deng-kuan", sans-serif;
+    text-align: center;
+  }
+  .title {
+    font-family: "YouShe", sans-serif;
+  }
+  .title h1 {
+    font-size: 60px;
+    margin-bottom: -10px;
+  }
+  .title p {
+    font-size: 60px;
+  }
+  .detail {
+    width: 80%;
+    font-size: 16px;
+    line-height: 1.8rem;
+    margin-top: 30px;
+  }
+  .button {
+    position: relative;
+    overflow: hidden;
+    width: 180px;
+    height: 56px;
+    color: white;
+    background-color: black;
+    border-radius: 26px;
+    text-align: center;
+    line-height: 56px;
+    margin-top: 70px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+  .button a {
+    letter-spacing: 3px;
+  }
+  .button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(228, 240, 255, 0.4),
+      transparent
+    );
+    transition: all 650ms;
+  }
+  .button:hover::before {
+    left: 100%;
+  }
+</style>
