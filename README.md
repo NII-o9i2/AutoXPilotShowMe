@@ -1,27 +1,51 @@
-# AutoXPilotShowMe
-Show Page repo
-## XPilot Planning开发团队
+<center><b><big style="font-size: 24px;">XPilot Planning 开发团队</big></b></center>
 
-Hi, 我们是一个专注于研究自动驾驶决策规划算法开发与落地的团队，来自于商汤科技。
+## **Introduce:**
+Hi, 我们是商汤科技的一个专注于研究自动驾驶决策规划算法与落地的团队。
 
-Hi, we are a team focused on the development of AutoPilot planning algorithms, from SenseTime@ai.
+这里我们将分享在无高精地图（w/o HDMap）场景下NOP功能的一些成果。
 
-我们可以实现在有无高精地图（w/o HDMap）的场景下实现完整的NOP功能，很高兴在这里分享一些团队在决策规划领域的取得的成果。
+欢迎加入和关注我们。
 
-We can reach NOP function with or without HD-Map. Happy to share some of the team’s achievements in the field of decision-making and motion planning. 
+## **Release:**
+**Tag：v1.0**
 
-Member：
++ OpenSpace问题定义
++ 横纵向空间联合规划器
++ Risk-aware风险保护策略
++ 行为决策树
++ 横纵联合的变道行为决策
 
-冯晓彤
-Harbin Institute of Technology
+[v1.0 详细文档](doc/v1.0_doc.md)
 
+## **Member:**
 
+**冯晓彤 sensetime@ai**
 
+*Harbin Institute of Technology*
 
-欢迎大家进行交流或者加入我们。
+<a href="https://github.com/NII-o9i2">
+  <img src="doc/image/github-mark/github-mark.png" alt="图片描述" style="width:20px;height:auto;">
+</a>
 
-Welcome to communicate or join us.
+**程人 sensetime@ai**
 
-联系方式：
+*Peking University*
 
-fengxiaotong.1994@gmail.com
+**奉山森 sensetime@ai**
+
+*Hunan University*
+
+**高宇辉 sensetime@ai**
+
+*Dalian Maritime University*
+
+**赵越 Ph.D sensetime@ai**
+
+*Shanghai Jiao Tong University*
+
+**联系方式：**
+
+欢迎大家进行交流或加入我们。
+
+**E-mail:** fengxiaotong.1994@gmail.com
