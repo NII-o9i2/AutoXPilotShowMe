@@ -29,26 +29,26 @@ jobs:
     # - name: Build
     #   run: npm run build
 
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
+    # - name: Setup Pages
+    #   uses: actions/configure-pages@v4
         
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-          # Upload entire repository
-        path: dist
+    # - name: Upload artifact
+    #   uses: actions/upload-pages-artifact@v3
+    #   with:
+    #       # Upload entire repository
+    #     path: dist
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+  # deploy:
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   name: Deploy
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4
+  #       with:
+  #         github_token: ${{ secrets.GITHUB_TOKEN }}
         
