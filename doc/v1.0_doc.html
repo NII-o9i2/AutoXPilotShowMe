@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>&ast;&ast;1&period; OpenSpace&#x95ee;&#x9898;&#x5b9a;&#x4e49;&ast;&ast;</title>
+            <title>&ast;&ast;1&period; Open-Space&#x95ee;&#x9898;&ast;&ast;</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -136,15 +136,19 @@
         
         </head>
         <body class="vscode-body vscode-light">
-            <center><b><big style="font-size: 24px;">V1.0 文档</big></b></center>
+            <center><b><big style="font-size: 28px;">V1.0 文档</big></b></center>
+<br>
+<p><a href="./../README.html">首页</a></p>
 <ul>
-<li><a href="#1-openspace%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89"><strong>1. OpenSpace问题定义</strong></a></li>
-<li><a href="#2-%E6%A8%AA%E7%BA%B5%E5%90%91%E7%A9%BA%E9%97%B4%E8%81%94%E5%90%88%E8%A7%84%E5%88%92%E5%99%A8"><strong>2. 横纵向空间联合规划器</strong></a></li>
-<li><a href="#3-risk-aware%E9%A3%8E%E9%99%A9%E4%BF%9D%E6%8A%A4%E7%AD%96%E7%95%A5"><strong>3. Risk-aware风险保护策略</strong></a></li>
-<li><a href="#4-%E8%A1%8C%E4%B8%BA%E5%86%B3%E7%AD%96%E6%A0%91"><strong>4. 行为决策树</strong></a></li>
-<li><a href="#5-%E6%A8%AA%E7%BA%B5%E8%81%94%E5%90%88%E7%9A%84%E5%8F%98%E9%81%93%E8%A1%8C%E4%B8%BA%E5%86%B3%E7%AD%96"><strong>5. 横纵联合的变道行为决策</strong></a></li>
+<li><a href="#1-openspace问题定义"><b><big>1. Open-Space问题</big></b></a></li>
+<li><a href="#2-横纵向空间联合规划器"><b><big>2. 横纵向空间联合规划器</big></b></a></li>
+<li><a href="#3-risk-aware风险保护策略"><b><big>3. Risk-aware风险保护策略</big></b></a></li>
+<li><a href="#4-行为决策树"><b><big>4. 行为决策树</big></b></a></li>
+<li><a href="#5-横纵联合的变道行为决策"><b><big>5. 横纵联合的变道行为决策</big></b></a></li>
 </ul>
-<h3 id="1-openspace问题定义"><strong>1. OpenSpace问题定义</strong></h3>
+<br>
+<hr>
+<h3 id="1-open-space问题"><strong>1. Open-Space问题</strong></h3>
 <p><a name="openspace问题定义"></a></p>
 <p>自动驾驶Planning方案中，大多数方案都是依赖于Reference Line来完成决策规划的，通过构建Frenet坐标系，可以把规划问题简化到S-L坐标，这在大多数场景下已经被验证有效，这一Reference Line主要由道路中心线来生成。</p>
 <p>在HD-Map的版本中，中心线由存储在高精地图的地图数据产生，这些数据绝大多数情况下准确，所以依赖此数据生成的Ref-Line也比较合理。</p>
@@ -159,33 +163,55 @@
 <div style="text-align:center;">
     <iframe src="xviz/osp2.html" width="1200" height="600" style="border:none;"></iframe>
 </div>
+<hr>
 <h3 id="2-横纵向空间联合规划器"><strong>2. 横纵向空间联合规划器</strong></h3>
 <p><a name="横纵向空间联合规划器"></a></p>
-<p>空间联合规划器我们使用了ILQR，通过增加omega_dot/lat_acc/obstacle等限制cost，可以实现较好的横纵协调规划，我们展示了两组极端场景，可以看到车辆在严重偏离横向参考时，纵向也自行进行了减速调节，偏离了参考车速，各类指标也在我们设定的限制范围内；</p>
-<p><strong>case 1</strong></p>
+<p>空间联合规划器我们使用了ILQR，通过增加omega_dot/lat_acc/obstacle等限制cost，可以实现较好的横纵协调规划来同时保证舒适性和合理性，我们展示了两组极端场景，可以看到车辆在严重偏离横向参考时，纵向也自行进行了减速调节，偏离了参考车速，各类指标也在我们设定的限制范围内；</p>
+<center><b><big style="font-size: 18px;">横纵向跟线 case 1</big></b></center>
+<br>
 <div style="text-align:center;">
-    <iframe src="xviz/ilqr1.html" width="1200" height="600" style="border:none;"></iframe>
+    <iframe src="xviz/ilqr1.html" width="1200" height="800" style="border:none;"></iframe>
 </div>
-<p><strong>case 2</strong></p>
+<br>
+<center><b><big style="font-size: 18px;">横纵向跟线 case 2</big></b></center>
 <div style="text-align:center;">
-    <iframe src="xviz/ilqr2.html" width="1200" height="600" style="border:none;"></iframe>
+    <iframe src="xviz/ilqr2.html" width="1200" height="800" style="border:none;"></iframe>
 </div>
 同时我们做了车辆动态避让的测试，规划器的表现同样优秀；
-<p><strong>case car</strong></p>
+<center><b><big style="font-size: 18px;">避让car case</big></b></center>
+<br>
 <div style="text-align:center;">
-    <iframe src="xviz/dodge_car_xviz.html" width="1200" height="600" style="border:none;"></iframe>
+    <iframe src="xviz/dodge_car_xviz.html" width="1200" height="800" style="border:none;"></iframe>
 </div>
-<p><strong>case truck</strong></p>
+<br>
+<center><b><big style="font-size: 18px;">避让truck case</big></b></center>
+<br>
 <div style="text-align:center;">
-    <iframe src="xviz/dodge_truck.html" width="1200" height="600" style="border:none;"></iframe>
+    <iframe src="xviz/dodge_truck.html" width="1200" height="800" style="border:none;"></iframe>
 </div>
+<hr>
 <h3 id="3-risk-aware风险保护策略"><strong>3. Risk-aware风险保护策略</strong></h3>
 <p><a name="risk-aware风险保护策略"></a></p>
+<p>TBA</p>
+<hr>
 <h3 id="4-行为决策树"><strong>4. 行为决策树</strong></h3>
 <p><a name="行为决策树"></a></p>
+<p>TBA</p>
+<hr>
 <h3 id="5-横纵联合的变道行为决策"><strong>5. 横纵联合的变道行为决策</strong></h3>
 <p><a name="横纵联合的变道行为决策"></a></p>
-
+<p>我们使用变道策略来通过上下匝道的场景，通过DCP-tree产生变道意图后，通过变道专有的planner-ppl来完成合理的选空和加减速规划。</p>
+<p>这里分别展示上下匝道的两个场景，对于加减速变道和选空场景不做展示(<strong>在下图的Viz中只显示变道过程的trajectory</strong>)：</p>
+<center><b><big style="font-size: 18px;">Enter Ramp</big></b></center>
+<br>
+<div style="text-align:center;">
+    <iframe src="xviz/xviz_enter_ramp.html" width="1200" height="600" style="border:none;"></iframe>
+</div>
+<center><b><big style="font-size: 18px;">Exit Ramp</big></b></center>
+<br>
+<div style="text-align:center;">
+    <iframe src="xviz/xviz_exit_ramp.html" width="1200" height="600" style="border:none;"></iframe>
+</div>
             
             
         </body>
