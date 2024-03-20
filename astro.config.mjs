@@ -8,5 +8,7 @@ export default defineConfig({
       prefixDefaultLocale: false,
       redirectToDefaultLocale: true
     }
-  }
+  },
+  site: 'https://mollypan.github.io',
+  base: '/XPilot',
 });
