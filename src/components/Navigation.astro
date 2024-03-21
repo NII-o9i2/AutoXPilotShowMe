@@ -1,26 +1,27 @@
 ---
 import LanguageSwitch from "./LanguageSwitch.astro";
-const {lang} = Astro.props
+const { lang } = Astro.props;
 const navTitle = {
   en: {
-    home: 'Home',
-    about: 'About',
-    articles: 'Articles',
-    contact: 'Contact'
+    home: "Home",
+    about: "About",
+    articles: "Articles",
+    contact: "Contact",
   },
   cn: {
-    home: '首页',
-    about: '关于',
-    articles: '文章',
-    contact: '联系我们'
-  }
-}
+    home: "首页",
+    about: "关于",
+    articles: "文章",
+    contact: "联系我们",
+  },
+};
 ---
+
 <!-- 顶部导航 -->
 <div class="nav-links">
   <div style="display: flex; align-items: center" class="right">
     <div class="logo">
-      <img src="../../public/images/logo.png" alt="" />
+      <img src=`${import.meta.env.BASE_URL}/Logo.png` alt="" />
     </div>
     <div class="links">
       <a href="#home">{navTitle[lang].home}</a>
@@ -30,7 +31,7 @@ const navTitle = {
     </div>
   </div>
   <div class="language">
-    <LanguageSwitch lang={lang}/>
+    <LanguageSwitch lang={lang} />
   </div>
 </div>
 
@@ -46,6 +47,7 @@ const navTitle = {
     height: 60px;
     width: 100%;
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     z-index: 99;
   }
   .nav-links.fold {

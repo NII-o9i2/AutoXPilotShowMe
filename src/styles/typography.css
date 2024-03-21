@@ -1,21 +1,21 @@
 /* 主页标题文字 - 优设标题黑 */
 @font-face {
   font-family: 'YouShe';
-  src: url('/fonts/yousheblack.ttf') format('truetype');
+  src: url('../assets/fonts/yousheblack.ttf') format('truetype');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
 }
 @font-face {
   font-family: 'Duru-Sans';
-  src: url('/fonts/DuruSans-Regular.ttf') format('truetype');
+  src: url('../assets/fonts/DuruSans-Regular.ttf') format('truetype');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
 }
 @font-face {
   font-family: 'wen-quan-deng-kuan';
-  src: url('/fonts/WenQuanDengKuanWeiMiHei-1.ttf') format('truetype');
+  src: url('../assets/fonts/WenQuanDengKuanWeiMiHei-1.ttf') format('truetype');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
