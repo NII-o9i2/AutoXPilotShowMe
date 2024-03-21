@@ -9,6 +9,6 @@ export default defineConfig({
       redirectToDefaultLocale: true
     }
   },
-  site: 'https://mollypan.github.io',
-  base: '/XPilot',
+  site: 'https://nii-o9i2.github.io',
+  base: '/AutoXPilotShowMe',
 });
