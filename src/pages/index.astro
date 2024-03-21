@@ -8,7 +8,7 @@ import Hamburger from "../components/Hamburger.astro";
   import "../scripts/menu.js";
 </script>
 
-<Layout title="Welcom to XPilot">
+<Layout title="Welcome to XPilot">
   <div id="home">
     <Hamburger />
     <Navigation lang="cn"/>
@@ -42,11 +42,11 @@ import Hamburger from "../components/Hamburger.astro";
     width: 100vw;
     height: 100vh;
     padding: 20px 30px;
-    background: url("../../public/images/bg-home.png") no-repeat;
+    background-image: linear-gradient(to right bottom, #07d2fb, #00dbf8, #00e4f2, #00ece9, #00f3dd, #00ece4, #00e5ea, #00deed, #00c3fc, #00a5ff, #0080ff, #3e4fec);
     background-size: cover;
   }
   #about {
-    background-image: url("../../public/images/bg-about.png");
+    background-image: linear-gradient(to right top, #07d2fb, #00dbf8, #00e4f2, #00ece9, #00f3dd, #00ece4, #00e5ea, #00deed, #00c3fc, #00a5ff, #0080ff, #3e4fec);
   }
   main {
     width: 100%;
@@ -93,6 +93,9 @@ import Hamburger from "../components/Hamburger.astro";
     transition: all 0.5s ease;
   }
   .button a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
     letter-spacing: 3px;
   }
   .button::before {
