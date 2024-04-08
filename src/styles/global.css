@@ -29,6 +29,7 @@
     width: 40vh !important;
     height: 100vh !important;
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     z-index: 99;
     transition: all 0.5s ease;
   }
@@ -61,8 +62,6 @@
   .title h1 {
     line-height: 56px;
   }
-
-  
 }
 @media screen and (max-width: 380px) {
   .title h1 {

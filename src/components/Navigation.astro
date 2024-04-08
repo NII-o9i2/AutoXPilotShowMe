@@ -28,6 +28,9 @@ const navTitle = {
     </div>
   </div>
   <div class="language">
+    <a class="github" href="https://github.com/NII-o9i2" target="_blank">
+      <img src=`${import.meta.env.BASE_URL}/GitHub.svg` alt="github icon" />
+    </a>
     <LanguageSwitch lang={lang} />
   </div>
 </div>
@@ -44,6 +47,7 @@ const navTitle = {
     height: 60px;
     width: 100%;
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     z-index: 99;
   }
   .nav-links.fold {
@@ -80,5 +84,20 @@ const navTitle = {
   }
   .links a:hover::after {
     width: 100%;
+  }
+
+  .language {
+    display: flex;
+    align-items: center;
+
+  }
+
+  .github {
+    width: 30px;
+    margin-right: 16px;
+    transition: all 0.2s ease-in-out;
+  }
+  .github:hover {
+    transform: scale(1.05);
   }
 </style>
