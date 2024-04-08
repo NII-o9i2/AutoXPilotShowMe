@@ -35,6 +35,9 @@ Hi, 我们是商汤科技的一个专注于研究自动驾驶决策规划算法�
 <a href="https://github.com/NII-o9i2">
   <img src="doc/image/github-mark/github-mark.png" alt="图片描述" style="width:20px;height:auto;">
 </a>
+<a href="https://github.com/NII-o9i2">
+  <img src="doc/image/github-mark/github-mark-white.png" alt="图片描述" style="width:20px;height:auto;">
+</a>
 
 <br>
 
