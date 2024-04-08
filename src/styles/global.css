@@ -4,6 +4,22 @@
   }
 }
 
+@media screen and (max-width: 810px) {
+  .person-intro {
+    display: flex !important;
+    justify-content: center !important;
+    /* grid-template-columns: 1fr,1fr;
+    grid-template-rows: auto; */
+    margin-left: 0 !important;
+    margin-top: 24px;
+  }
+  .contact {
+    width: 240px !important;
+    height: 120px !important;
+  }
+}
+
+
 @media screen and (max-width: 499px) {
   .nav-links {
     position: fixed !important;
@@ -46,4 +62,14 @@
     line-height: 56px;
   }
 
+  
+}
+@media screen and (max-width: 380px) {
+  .title h1 {
+    font-size: 34px !important;
+    line-height: 36px;
+  }
+  .about-text ul li{
+    font-size: small;
+  }
 }

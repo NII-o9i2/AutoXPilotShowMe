@@ -2,16 +2,18 @@
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Hamburger from "../components/Hamburger.astro";
+import Card from "../components/Card.astro";
+import Button from "../components/Button.astro";
 ---
 
 <script>
   import "../scripts/menu.js";
 </script>
 
-<Layout title="Welcom to XPilot">
+<Layout title="Welcome to XPilot">
   <div id="home">
     <Hamburger />
-    <Navigation lang="cn"/>
+    <Navigation lang="cn" />
     <main>
       <div class="content">
         <div class="title">
@@ -22,31 +24,136 @@ import Hamburger from "../components/Hamburger.astro";
           <p>
             Hi👋～我们是一个专注于研究自动驾驶决策规划算法开发与落地的团队，来自于商汤科技。
           </p>
-          <p>
-            我们可以实现在有无高精地图(w/o
-            HDMap)的场景下实现完整的NOP功能，很高兴在这里分享一些团队在决策规划领域的取得的成果
+          <p style="max-width: 900px">
+            我们可以实现在有无高精地图(w/oHDMap)的场景下实现完整的NOP功能。在2024.03.30会发布基于纯优化的决策规划方案。预计2024年底，我们会发布v2.0版本，将展示在规划大模型方向的研究成果。欢迎感兴趣的童鞋加入和关注我们!
           </p>
         </div>
         <div class="button">
-          <a href="#about">了解我们</a>
+          <a href="#team">了解我们</a>
         </div>
       </div>
     </main>
   </div>
-  <div id="about">about</div>
+  <div id="about">
+    <div
+      style="display:flex;justify-content: space-around;width: 70vw flex-wrap: wrap"
+      class="about-container"
+    >
+      <div class="about-text">
+        <p class="about-title title">Tag：v1.0</p>
+        <p class="about-title title">(2024.03.30)</p>
+        <ul style="margin-top: 20px">
+          <li>✨ OpenSpace问题定义</li>
+          <li>✨ 横纵向空间联合规划器</li>
+          <li>✨ Risk-aware风险保护策略</li>
+          <li>✨ 行为决策树</li>
+          <li>✨ 横纵联合的变道行为决策</li>
+        </ul>
+        <a
+          href=`${import.meta.env.BASE_URL}/posts/v1.0_doc`
+          style="margin-top: 40px;display: block;margin-left: 8px"
+        >
+          <Button text="详细文档" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="team">
+    <div>
+      <p class="team-title">团队成员</p>
+      <div class="person-intro">
+        <Card
+          name="冯晓彤"
+          school="Harbin Institute of Technology"
+          imgUrl="fxt.jpeg"
+        />
+        <Card
+          name="程人"
+          school="Peking University"
+          imgUrl="cr.jpeg"
+          isBlack="true"
+        />
+        <Card
+          name="奉山森"
+          school="Hunan University"
+          imgUrl="fss.jpeg"
+          isBlack="true"
+        />
+        <Card
+          name="高宇辉"
+          school="Dalian Maritime University"
+          imgUrl="gyh.jpeg"
+        />
+        <Card
+          name="赵越"
+          school="Shanghai Jiao Tong University"
+          imgUrl="zy.jpeg"
+        />
+        <div class="contact">
+          <img
+            src=`${import.meta.env.BASE_URL}/mail.svg`
+            style="margin-bottom:12px"
+          />
+          <div>
+            <p style="font-size:10px; margin-bottom:6px">
+              fengxiaotong.1994@gmail.com
+            </p>
+            <p style="font-size:10px">fengxiaotong@senseauto.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
 
 <style>
   #home,
-  #about {
+  #about,
+  #team {
     width: 100vw;
     height: 100vh;
     padding: 20px 30px;
-    background: url("../../public/images/bg-home.png") no-repeat;
+    background-image: linear-gradient(
+      to right bottom,
+      #07d2fb,
+      #00dbf8,
+      #00e4f2,
+      #00ece9,
+      #00f3dd,
+      #00ece4,
+      #00e5ea,
+      #00deed,
+      #00c3fc,
+      #00a5ff,
+      #0080ff,
+      #3e4fec
+    );
     background-size: cover;
   }
   #about {
-    background-image: url("../../public/images/bg-about.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+      to right top,
+      #07d2fb,
+      #00dbf8,
+      #00e4f2,
+      #00ece9,
+      #00f3dd,
+      #00ece4,
+      #00e5ea,
+      #00deed,
+      #00c3fc,
+      #00a5ff,
+      #0080ff,
+      #3e4fec
+    );
+  }
+  #team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   main {
     width: 100%;
@@ -59,6 +166,7 @@ import Hamburger from "../components/Hamburger.astro";
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     font-family: "wen-quan-deng-kuan", sans-serif;
     text-align: center;
   }
@@ -73,6 +181,10 @@ import Hamburger from "../components/Hamburger.astro";
     font-size: 60px;
   }
   .detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 80%;
     font-size: 16px;
     line-height: 1.8rem;
@@ -93,6 +205,9 @@ import Hamburger from "../components/Hamburger.astro";
     transition: all 0.5s ease;
   }
   .button a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
     letter-spacing: 3px;
   }
   .button::before {
@@ -112,5 +227,60 @@ import Hamburger from "../components/Hamburger.astro";
   }
   .button:hover::before {
     left: 100%;
+  }
+
+  /* about */
+  .about-title {
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  #about ul {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 20px;
+  }
+  #about ul li {
+    line-height: 40px;
+    font-family: "wen-quan-deng-kuan", sans-serif;
+  }
+
+  .person-intro {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 412px;
+  }
+  .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 180px;
+    height: 180px;
+    color: white;
+    background-color: black;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 18px;
+    padding: 20px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    box-shadow:
+      rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .contact img {
+    width: 30px;
+  }
+  .contact:hover {
+    transform: scale(1.05);
+  }
+  .team-title {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 24px;
+    font-family: 'youshe', sans-serif;
+    letter-spacing: 4px;
   }
 </style>

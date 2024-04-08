@@ -8,5 +8,7 @@ export default defineConfig({
       prefixDefaultLocale: false,
       redirectToDefaultLocale: true
     }
-  }
+  },
+  site: 'https://nii-o9i2.github.io',
+  base: '/AutoXPilotShowMe',
 });
