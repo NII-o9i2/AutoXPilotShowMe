@@ -155,7 +155,7 @@
 <p>但在无图（without HD-Map）的场景中，中心线依赖于车道线识别精度，且实际场景中车道线混乱的情况非常多（典型如新旧线等），在分汇流、城区等场景下给Ref-Line的生成带来了很多麻烦。</p>
 <p>针对此问题，我们采取了两种策略。</p>
 <ul>
-<li>弱化依赖Ref-Line，将Frenet域改为空间域问题，通过车辆运行学合理性生成空间域，在此基础下来完成规划</li>
+<li>弱化依赖Ref-Line，将Frenet域改为空间域问题，通过车辆运行学合理性生成空间域</li>
 <li>更换空间规划器，在笛卡尔空间下解决规划问题</li>
 </ul>
 <p>针对第一个策略，我们将系统配置了两种模式，在参考线比较合理情况下，将BaseLine依然使用中心线平滑。而在不合理情况下，将进入&quot;OSP&quot;的模式，OSP参考引导点以及交通参与者情况生成车辆的预设轨迹，但此轨迹在下游motion中并不具备强参考作用，更多地是指导我们将要去往何处。</p>
@@ -166,25 +166,25 @@
 <hr>
 <h3 id="2-横纵向空间联合规划器"><strong>2. 横纵向空间联合规划器</strong></h3>
 <p><a name="横纵向空间联合规划器"></a></p>
-<p>空间联合规划器我们使用了ILQR，通过增加omega_dot/lat_acc/obstacle等限制cost，可以实现较好的横纵协调规划来同时保证舒适性和合理性，我们展示了两组极端场景，可以看到车辆在严重偏离横向参考时，纵向也自行进行了减速调节，偏离了参考车速，各类指标也在我们设定的限制范围内；</p>
-<center><b><big style="font-size: 18px;">横纵向跟线 case 1</big></b></center>
+<p>空间联合规划器我们使用了ILQR，通过增加限制cost，可以实现较好的横纵协调规划来同时保证舒适性和合理性，我们展示了两组极端场景，可以看到车辆在严重偏离横向参考时，纵向也自行进行了减速调节，偏离了参考车速，各类指标也在我们设定的限制范围内；</p>
+<center><b><big style="font-size: 16px;">横纵向跟线 case 1</big></b></center>
 <br>
 <div style="text-align:center;">
     <iframe src="xviz/ilqr1.html" width="1200" height="800" style="border:none;"></iframe>
 </div>
 <br>
-<center><b><big style="font-size: 18px;">横纵向跟线 case 2</big></b></center>
+<center><b><big style="font-size: 16px;">横纵向跟线 case 2</big></b></center>
 <div style="text-align:center;">
     <iframe src="xviz/ilqr2.html" width="1200" height="800" style="border:none;"></iframe>
 </div>
 同时我们做了车辆动态避让的测试，规划器的表现同样优秀；
-<center><b><big style="font-size: 18px;">避让car case</big></b></center>
+<center><b><big style="font-size: 16px;">避让car case</big></b></center>
 <br>
 <div style="text-align:center;">
     <iframe src="xviz/dodge_car_xviz.html" width="1200" height="800" style="border:none;"></iframe>
 </div>
 <br>
-<center><b><big style="font-size: 18px;">避让truck case</big></b></center>
+<center><b><big style="font-size: 16px;">避让truck case</big></b></center>
 <br>
 <div style="text-align:center;">
     <iframe src="xviz/dodge_truck.html" width="1200" height="800" style="border:none;"></iframe>
@@ -192,11 +192,23 @@
 <hr>
 <h3 id="3-risk-aware风险保护策略"><strong>3. Risk-aware风险保护策略</strong></h3>
 <p><a name="risk-aware风险保护策略"></a></p>
-<p>TBA</p>
+<p>参考PODDP的算法策略，我们也引入了一些不确定的似然估计，来确保我们的策略既可以舒适，又可以在极端情况下仍然可以保证安全性。</p>
+<p>在下图我们展示了一个典型的cut-in的策略，我们生成了两支轨迹树分别对应不动的belief空间，而两只则同时完成后向传递来确保两支策略同时可满足。</p>
+<center><b><big style="font-size: 16px;">针对Cut-in的策略</big></b></center>
+<br>
+<div style="text-align:center;">
+    <iframe src="xviz/poilqr.html" width="1200" height="800" style="border:none;"></iframe>
+</div>
 <hr>
 <h3 id="4-行为决策树"><strong>4. 行为决策树</strong></h3>
 <p><a name="行为决策树"></a></p>
-<p>TBA</p>
+<p>我们参考Epsilon的解决方案，将DCP-tree应用到我们的行为决策中，不同于原方案的是，我们将DCP的行为定义进行了简化，该策略应用于我们的整体变道决策中。</p>
+<p>下图我们将展示一个仿真场景下DCP-tree的拓扑关系，该tree中我们进行了一些剪枝的操作。</p>
+<center><b><big style="font-size: 16px;">一个简单场景的DCP-tree</big></b></center>
+<br>
+<div style="text-align:center;">
+    <iframe src="xviz/dcp_tree.html" width="1200" height="800" style="border:none;"></iframe>
+</div>
 <hr>
 <h3 id="5-横纵联合的变道行为决策"><strong>5. 横纵联合的变道行为决策</strong></h3>
 <p><a name="横纵联合的变道行为决策"></a></p>
